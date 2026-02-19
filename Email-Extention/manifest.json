@@ -1,0 +1,26 @@
+{
+  "name": "Email Assistant",
+  "description": "Email Replay Generator",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions":["storage","activeTab"],
+  "host_permissons":["http://localhost:8080/*",
+                      "*://mail.google.com/*"  ],
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["*://mail.google.com/*"],
+      "css":["content.css"],
+      "run_at":"document_end"
+    }
+  ],
+    "web_accessible_resources": [
+    {
+      "resources": [ "iocns/*" ],
+      "matches": [ "*://mail.google.com/*" ]
+    }
+  ],
+  "action": {
+    "default_title": "Email Assistent"
+  }
+}
